@@ -2,9 +2,9 @@
 
 // Viewed solution
 var countSheep = function (num) {
-    let str = ''
+    let str = '';
     for (let i = 1; i <= num; i++) {
-        str += `${i} sheep...`
+        str += `${i} sheep...`;
     }
     return str;
 }
