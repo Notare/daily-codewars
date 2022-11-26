@@ -1,24 +1,12 @@
-// Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+// This time no story, no theory. The examples below show you how to write function accum:
+// Examples:
 
-// Note: a and b are not ordered!
-// Examples (a, b) --> output (explanation)
+// accum("abcd") -> "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") -> "C-Ww-Aaa-Tttt"
 
-// (1, 0) --> 1 (1 + 0 = 1)
-// (1, 2) --> 3 (1 + 2 = 3)
-// (0, 1) --> 1 (0 + 1 = 1)
-// (1, 1) --> 1 (1 since both are same)
-// (-1, 0) --> -1 (-1 + 0 = -1)
-// (-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+// The parameter of accum is a string which includes only letters from a..z and A..Z.
 
-function getSum(a, b) {
-    let sum = 0;
-
-    if (a === b) return a;
-    else {
-        for (let i = Math.min(a, b); i <= Math.max(a, b); i++) {
-            sum += i;
-        }
-    }
-
-    return sum;
+function accum(s) {
+    return s.split('').map((e, i) => e.toUpperCase() + e.toLowerCase().repeat(i)).join('-');
 }
