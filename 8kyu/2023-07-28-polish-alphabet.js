@@ -29,15 +29,11 @@ function correctPolishLetters(string) {
     ź: "z",
     ż: "z",
   };
-  let strWithoutPolishLetters = "";
 
-  for (const char of string) {
-    if (Object.keys(polishLetters).includes(char)) {
-      strWithoutPolishLetters += polishLetters[char];
-    } else {
-      strWithoutPolishLetters += char;
-    }
-  }
-
-  return strWithoutPolishLetters;
+  return string
+    .split("")
+    .map((char) =>
+      Object.keys(polishLetters).includes(char) ? polishLetters[char] : char
+    )
+    .join("");
 }
